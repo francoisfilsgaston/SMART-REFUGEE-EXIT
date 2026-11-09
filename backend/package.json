@@ -1,15 +1,21 @@
 {
-  "name": "backend",
+  "name": "smart-refugee-exit-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend de la plateforme SMART REFUGEE EXIT",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
   },
-  "keywords": [],
+  "keywords": [
+    "smart-refugee-exit",
+    "refugees",
+    "exit-permit"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^18.0.9",

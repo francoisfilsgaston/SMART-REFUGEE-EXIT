@@ -1,2 +1,20 @@
+# Dépendances Node.js
 backend/node_modules/
+frontend/node_modules/
+
+# Variables d'environnement
 backend/.env
+frontend/.env
+
+# Fichiers de compilation
+backend/dist/
+frontend/dist/
+frontend/build/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
