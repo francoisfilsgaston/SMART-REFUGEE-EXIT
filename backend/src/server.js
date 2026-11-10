@@ -1,23 +1,39 @@
-// 1. Importation d'Express
+// Importation d'Express
 import express from "express";
 
-// 2. Création de l'application Express
-const app = express();
-// 3. Définition du port du serveur
-const PORT = 5000;
+// Importation de la connexion MongoDB
+import { connectDB } from "./config/database.js";
 
-// 4. Middleware pour recevoir les données JSON
+// Importation des variables d'environnement
+import { ENV } from "./config/env.js";
+
+// Création de l'application Express
+const app = express();
+
+// Middleware JSON
 app.use(express.json());
 
-// 5. Première route de notre API
+// Route principale
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
-        message: "Bienvenue sur l'API SMART REFUGEE EXIT"
+        message: "Bienvenue sur l'API SMART REFUGEE EXIT",
+        database: "MongoDB"
     });
 });
 
-// 6. Démarrage du serveur
-app.listen(PORT, () => {
-    console.log(`Serveur démarré sur http://localhost:${PORT}`);
-});
+// Fonction principale de démarrage
+const startServer = async () => {
+    // Connexion à MongoDB
+    await connectDB();
+
+    // Démarrage du serveur Express
+    app.listen(ENV.PORT, () => {
+        console.log(
+            `Serveur démarré sur http://localhost:${ENV.PORT}`
+        );
+    });
+};
+
+// Exécution du démarrage
+startServer();
