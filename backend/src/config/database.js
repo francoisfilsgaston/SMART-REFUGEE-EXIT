@@ -1,6 +1,5 @@
 // Importation du module DNS
 import dns from "node:dns";
-
 // Configuration des serveurs DNS
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
