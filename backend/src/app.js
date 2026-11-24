@@ -5,6 +5,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 
 import campRoutes from "./routes/campRoutes.js";
+import refugeeRoutes from "./routes/refugeeRoutes.js"
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/camps", campRoutes);
+app.use("/api/refugees", refugeeRoutes);
 
 // ==========================================
 // 4. ROUTE INCONNUE
