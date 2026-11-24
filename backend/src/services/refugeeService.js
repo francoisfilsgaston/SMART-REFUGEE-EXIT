@@ -31,3 +31,25 @@ export const createRefugeeService = async (refugeeData) => {
     // 5. Retourner le réfugié créé
     return newRefugee;
 };
+
+//Service pour Récupérer tous les réfugiés avec les informations de leur camp
+export const getAllRefugeesService = async () => {
+
+    const refugees = await Refugee.find().populate("camp", "name code province, commune");
+
+    return refugees;
+};
+
+//Service pour Récupérer un réfugié par son ID avec les informations du camp
+export const getRefugeeByIdService = async (refugeeId) => {
+
+    // Rechercher le réfugié dans MongoDB
+    const refugee = await Refugee.findById(refugeeId).populate("camp", "name code province commune")
+
+    // Vérifier si le réfugié existe
+    if (!refugee) {
+        throw new Error("Réfugié introuvable.");
+    }
+
+    return refugee;
+};
